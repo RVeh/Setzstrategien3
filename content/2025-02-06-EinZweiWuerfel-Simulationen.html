@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gewinnwahrscheinlichkeiten - Simulationen &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Eine Rekursionsformel für den Zwei-Würfel-Fall" href="2Wuerfel-Fall.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Setzstrategien
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-06-Graph-PA-PB.html">
+   Strategie S gegen alle anderen Strategien
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-05-P_A-P_B-exakt-gerundet.html">
+   Gewinnwahrscheinlichkeiten - exakt und gerundet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-05-Symbolisch-P_A-P_B-3Felder.html">
+   Gewinnwahrscheinlichkeiten - symbolisch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-04-P_A-P_B-min-max.html">
+   Die Suche nach der optimalen Strategie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2Wuerfel-Fall.html">
+   Eine Rekursionsformel für den Zwei-Würfel-Fall
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Gewinnwahrscheinlichkeiten - Simulationen
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/2025-02-06-EinZweiWuerfel-Simulationen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/2025-02-06-EinZweiWuerfel-Simulationen.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/2025-02-06-EinZweiWuerfel-Simulationen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Gewinnwahrscheinlichkeiten - Simulationen</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gewinnwahrscheinlichkeiten-simulationen">
+<h1>Gewinnwahrscheinlichkeiten - Simulationen<a class="headerlink" href="#gewinnwahrscheinlichkeiten-simulationen" title="Permalink to this headline">¶</a></h1>
+<p>Mit dem Programm könenn zum Ein- und Zwei-Würfel-Fall die Gewinnwahrscheinlichkeiten durch Simulationen ermittelt werden. Es kann zwischen den beiden Fällen gewechselt werden.</p>
+<p>Das Programm ist erweiterbar auf mehr als zwei Würfel (zwei Spieler). Exakte Lösungen sind ab dem Zwei-Würfel-Fall prinzipiell auch möglich. Die Rekursionsformeln mit den zugehörigen Abbruchbedingungen werden aber sehr kompliziert.</p>
+<p>Simulationen zeigen, dass die Gewinnwahrscheinlichkeiten im Zwei-Würfel-Fall bei fest gewählten Setzstrategien sich deutlich von denen im Ein-Würfel-Fall unterscheiden. Es sollte somit darauf geachtet werden, dass entweder mit einem Würfel oder mit mehreren Würfeln gespielt wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># Beispiel-Chip-Verteilungen und Wahrscheinlichkeiten</span>
+<span class="n">chips1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">chips2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">probabilities</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">18</span><span class="p">]</span>
+
+
+<span class="c1"># Funktion für die Simulation</span>
+<span class="k">def</span> <span class="nf">simulate_competition</span><span class="p">(</span><span class="n">chips1</span><span class="p">,</span> <span class="n">chips2</span><span class="p">,</span> <span class="n">probabilities1</span><span class="p">,</span> <span class="n">probabilities2</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">shared_die</span><span class="p">):</span>
+    <span class="n">wins1</span><span class="p">,</span> <span class="n">wins2</span><span class="p">,</span> <span class="n">draws</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
+        <span class="n">chips1_current</span><span class="p">,</span> <span class="n">chips2_current</span> <span class="o">=</span> <span class="n">chips1</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">chips2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">while</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips1_current</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips2_current</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">shared_die</span><span class="p">:</span>
+                <span class="n">spin_result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chips1</span><span class="p">)),</span> <span class="n">probabilities1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">spin_result1</span><span class="p">,</span> <span class="n">spin_result2</span> <span class="o">=</span> <span class="n">spin_result</span><span class="p">,</span> <span class="n">spin_result</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">spin_result1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chips1</span><span class="p">)),</span> <span class="n">probabilities1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">spin_result2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chips2</span><span class="p">)),</span> <span class="n">probabilities2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">chips1_current</span><span class="p">[</span><span class="n">spin_result1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">chips1_current</span><span class="p">[</span><span class="n">spin_result1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">chips2_current</span><span class="p">[</span><span class="n">spin_result2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">chips2_current</span><span class="p">[</span><span class="n">spin_result2</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips1_current</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips2_current</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wins1</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips2_current</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chips1_current</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wins2</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">draws</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">wins1</span><span class="p">,</span> <span class="n">wins2</span><span class="p">,</span> <span class="n">draws</span>
+
+
+<span class="c1"># Interaktive Widgets</span>
+<span class="n">trials_slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Spiele:&#39;</span><span class="p">)</span>
+<span class="n">shared_die_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Ein Würfel&quot;</span><span class="p">)</span>
+
+<span class="c1"># Funktion zur Durchführung der Simulation mit Widgets</span>
+<span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">shared_die</span><span class="p">):</span>
+    <span class="n">shared_die_bool</span> <span class="o">=</span> <span class="n">shared_die</span>
+    <span class="n">probabilities1</span> <span class="o">=</span> <span class="n">probabilities2</span> <span class="o">=</span> <span class="n">probabilities</span> <span class="k">if</span> <span class="n">shared_die_bool</span> <span class="k">else</span> <span class="n">probabilities</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simuliere mit </span><span class="si">{</span><span class="n">trials</span><span class="si">}</span><span class="s2"> Versuchen; </span><span class="si">{</span><span class="s1">&#39;ein Würfel&#39;</span> <span class="k">if</span> <span class="n">shared_die_bool</span> <span class="k">else</span> <span class="s1">&#39;zwei Würfel&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">wins1</span><span class="p">,</span> <span class="n">wins2</span><span class="p">,</span> <span class="n">draws</span> <span class="o">=</span> <span class="n">simulate_competition</span><span class="p">(</span><span class="n">chips1</span><span class="p">,</span> <span class="n">chips2</span><span class="p">,</span> <span class="n">probabilities1</span><span class="p">,</span> <span class="n">probabilities2</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">shared_die_bool</span><span class="p">)</span>
+    <span class="n">total_simulations</span> <span class="o">=</span> <span class="n">wins1</span> <span class="o">+</span> <span class="n">wins2</span> <span class="o">+</span> <span class="n">draws</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Verteilung </span><span class="si">{</span><span class="n">chips1</span><span class="si">}</span><span class="s2"> gewinnt </span><span class="si">{</span><span class="n">wins1</span> <span class="o">/</span> <span class="n">total_simulations</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% der Spiele&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Verteilung </span><span class="si">{</span><span class="n">chips2</span><span class="si">}</span><span class="s2"> gewinnt </span><span class="si">{</span><span class="n">wins2</span> <span class="o">/</span> <span class="n">total_simulations</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% der Spiele&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unentschieden: </span><span class="si">{</span><span class="n">draws</span> <span class="o">/</span> <span class="n">total_simulations</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% der Spiele&quot;</span><span class="p">)</span>
+
+<span class="c1"># Interaktive Anzeige</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">run_simulation</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="n">trials_slider</span><span class="p">,</span> <span class="n">shared_die</span><span class="o">=</span><span class="n">shared_die_checkbox</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "5d901119f3424e6188449f6f463fca01"}
+</script></div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"a94a24b7512e46d7bd2514b1eed60edf": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d6edbbf087b446e09777788425e01414": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "b6338027ad0641b6a054942354ed3f3f": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "Spiele:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_a94a24b7512e46d7bd2514b1eed60edf", "max": 100000, "min": 1000, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1000, "style": "IPY_MODEL_d6edbbf087b446e09777788425e01414", "value": 10000}}, "8982ff934d8947e9be57d663cc9fe477": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "084e6c986d094e63b63a353bb8d893cf": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "80ef5f59b00c4ff492241fd187e829ab": {"model_name": "CheckboxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "CheckboxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "CheckboxView", "description": "Ein W\u00fcrfel", "description_tooltip": null, "disabled": false, "indent": true, "layout": "IPY_MODEL_8982ff934d8947e9be57d663cc9fe477", "style": "IPY_MODEL_084e6c986d094e63b63a353bb8d893cf", "value": true}}, "834ac0264b524dc396ddbeebbe75dc2a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5d901119f3424e6188449f6f463fca01": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_b6338027ad0641b6a054942354ed3f3f", "IPY_MODEL_80ef5f59b00c4ff492241fd187e829ab", "IPY_MODEL_6250b165fc6147acbd40bc3b649149a0"], "layout": "IPY_MODEL_834ac0264b524dc396ddbeebbe75dc2a"}}, "db2919b03d1b481990c95a26744b5600": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6250b165fc6147acbd40bc3b649149a0": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_db2919b03d1b481990c95a26744b5600", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\nSimuliere mit 10000 Versuchen; ein W\u00fcrfel\nVerteilung [3, 5, 4, 3, 2, 1] gewinnt 30.61% der Spiele\nVerteilung [3, 7, 4, 3, 1, 0] gewinnt 32.92% der Spiele\nUnentschieden: 36.47% der Spiele\n"}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2Wuerfel-Fall.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Eine Rekursionsformel für den Zwei-Würfel-Fall</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch The Jupyter Book Community<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

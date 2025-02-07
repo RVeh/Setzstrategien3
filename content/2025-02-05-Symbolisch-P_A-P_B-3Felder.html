@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gewinnwahrscheinlichkeiten - symbolisch &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Die Suche nach der optimalen Strategie" href="2025-02-04-P_A-P_B-min-max.html" />
+    <link rel="prev" title="Gewinnwahrscheinlichkeiten - exakt und gerundet" href="2025-02-05-P_A-P_B-exakt-gerundet.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Setzstrategien
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-06-Graph-PA-PB.html">
+   Strategie S gegen alle anderen Strategien
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-05-P_A-P_B-exakt-gerundet.html">
+   Gewinnwahrscheinlichkeiten - exakt und gerundet
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Gewinnwahrscheinlichkeiten - symbolisch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-04-P_A-P_B-min-max.html">
+   Die Suche nach der optimalen Strategie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2Wuerfel-Fall.html">
+   Eine Rekursionsformel für den Zwei-Würfel-Fall
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2025-02-06-EinZweiWuerfel-Simulationen.html">
+   Gewinnwahrscheinlichkeiten - Simulationen
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/2025-02-05-Symbolisch-P_A-P_B-3Felder.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/2025-02-05-Symbolisch-P_A-P_B-3Felder.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/2025-02-05-Symbolisch-P_A-P_B-3Felder.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Gewinnwahrscheinlichkeiten - symbolisch</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gewinnwahrscheinlichkeiten-symbolisch">
+<h1>Gewinnwahrscheinlichkeiten - symbolisch<a class="headerlink" href="#gewinnwahrscheinlichkeiten-symbolisch" title="Permalink to this headline">¶</a></h1>
+<p>Mit dem folgenden Programm werden die Gewinnwahrscheinlichkeiten <span class="math notranslate nohighlight">\(P_A(V,W)\)</span>, <span class="math notranslate nohighlight">\(P_B(V,W)\)</span> und <span class="math notranslate nohighlight">\(P_U(V,W)\)</span> mit den Variablen <span class="math notranslate nohighlight">\(p1, p2\)</span> und <span class="math notranslate nohighlight">\(p3\)</span> für den Fall mit 3 Feldern berechnet.</p>
+<p><strong>Eingabe (kann verändert werden)</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p=(p1,p2,p3)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V=(1,0,0)\)</span>, <span class="math notranslate nohighlight">\(W=(0,1,0)\)</span></p></li>
+</ul>
+<p><strong>Beispiele</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p=(p1,p2,1-p1-p2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p=(1/2,p2,p3)\)</span></p></li>
+</ul>
+<p>Es können also auch Werte eingesetzt werden. Weiterhin wird versucht, die schnell sehr komplex werdenden Terme zu vereinfachen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Rational</span><span class="p">,</span><span class="n">simplify</span><span class="p">,</span> <span class="n">cancel</span>
+
+<span class="c1"># Symbole für die Wahrscheinlichkeiten</span>
+<span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;p1 p2 p3&#39;</span><span class="p">)</span>
+
+<span class="c1"># Eingabe mit symbolischen Wahrscheinlichkeiten</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Chips von A</span>
+<span class="n">W</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Chips von B</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">P_A</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+    
+    <span class="c1"># Abbruchbedingungen mit Vektoren</span>
+    <span class="k">if</span> <span class="n">V</span> <span class="o">==</span> <span class="n">W</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Unentschieden</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">V</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># A gewinnt</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">W</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># B gewinnt</span>
+    
+    <span class="c1"># s-Wert berechnen</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">if</span> <span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">W</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Rekursion</span>
+    <span class="n">P_A_total</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">P_B_total</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">P_U_total</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">W</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Vj</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">v</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+            <span class="n">Wj</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">w</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
+            <span class="n">P_A_next</span><span class="p">,</span> <span class="n">P_B_next</span><span class="p">,</span> <span class="n">P_U_next</span> <span class="o">=</span> <span class="n">P_A</span><span class="p">(</span><span class="n">Vj</span><span class="p">,</span> <span class="n">Wj</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="n">P_A_total</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">P_A_next</span>
+            <span class="n">P_B_total</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">P_B_next</span>
+            <span class="n">P_U_total</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">P_U_next</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">P_A_total</span><span class="p">,</span> <span class="n">P_B_total</span><span class="p">,</span> <span class="n">P_U_total</span><span class="p">)</span>
+
+<span class="c1"># Berechnung</span>
+<span class="n">P_A_value</span><span class="p">,</span> <span class="n">P_B_value</span><span class="p">,</span> <span class="n">P_U_value</span> <span class="o">=</span> <span class="n">P_A</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+ 
+<span class="c1"># Ausgabe der symbolischen Wahrscheinlichkeiten</span>
+<span class="c1">#print(&quot;Ausgabe der Wahrscheinlichkeiten:&quot;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gewinnwahrscheinlichkeit für A:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_A(</span><span class="si">{</span><span class="n">V</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s2">)=</span><span class="si">{</span><span class="n">P_A_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gewinnwahrscheinlichkeit für B:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_B(</span><span class="si">{</span><span class="n">V</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s2">)=</span><span class="si">{</span><span class="n">P_B_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wahrscheinlichkeit für Unentschieden:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_U(</span><span class="si">{</span><span class="n">V</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s2">)=</span><span class="si">{</span><span class="n">P_U_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vereinfachung der Ausdrücke</span>
+<span class="n">P_A_simplified</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">P_A_value</span><span class="p">)</span>
+<span class="n">P_B_simplified</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">P_B_value</span><span class="p">)</span>
+<span class="n">P_U_simplified</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">P_U_value</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe der vereinfachten Ausdrücke</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vereinfachte Ausdrücke:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_A (vereinfacht): </span><span class="si">{</span><span class="n">P_A_simplified</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_B (vereinfacht): </span><span class="si">{</span><span class="n">P_B_simplified</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_U (vereinfacht): </span><span class="si">{</span><span class="n">P_U_simplified</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Alternativ: Verwendung von cancel(), um gemeinsame Faktoren zu kürzen</span>
+<span class="n">P_A_canceled</span> <span class="o">=</span> <span class="n">cancel</span><span class="p">(</span><span class="n">P_A_value</span><span class="p">)</span>
+<span class="n">P_B_canceled</span> <span class="o">=</span> <span class="n">cancel</span><span class="p">(</span><span class="n">P_B_value</span><span class="p">)</span>
+<span class="n">P_U_canceled</span> <span class="o">=</span> <span class="n">cancel</span><span class="p">(</span><span class="n">P_U_value</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe der gekürzten Ausdrücke</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gekürzte Ausdrücke (cancel):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_A (gekürzt): </span><span class="si">{</span><span class="n">P_A_canceled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_B (gekürzt): </span><span class="si">{</span><span class="n">P_B_canceled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P_U (gekürzt): </span><span class="si">{</span><span class="n">P_U_canceled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gewinnwahrscheinlichkeit für A:
+P_A((1, 0, 0),(0, 1, 0))=p1/(1 - p3)
+
+Gewinnwahrscheinlichkeit für B:
+P_B((1, 0, 0),(0, 1, 0))=p2/(1 - p3)
+
+Wahrscheinlichkeit für Unentschieden:
+P_U((1, 0, 0),(0, 1, 0))=0
+
+Vereinfachte Ausdrücke:
+P_A (vereinfacht): -p1/(p3 - 1)
+P_B (vereinfacht): -p2/(p3 - 1)
+P_U (vereinfacht): 0
+
+Gekürzte Ausdrücke (cancel):
+P_A (gekürzt): -p1/(p3 - 1)
+P_B (gekürzt): -p2/(p3 - 1)
+P_U (gekürzt): 0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2025-02-05-P_A-P_B-exakt-gerundet.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Gewinnwahrscheinlichkeiten - exakt und gerundet</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2025-02-04-P_A-P_B-min-max.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Die Suche nach der optimalen Strategie</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch The Jupyter Book Community<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
